@@ -1,0 +1,99 @@
+.cardFormPaient {
+  /* width: 100%; */
+  height: 60vh;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  margin: 3rem 2rem;
+  padding: 2rem;
+}
+.cardFormPaient h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #dcdada;
+  color: #4874dc;
+}
+.appointmentLayout {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.leftSide .formAction {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+.formAction label,
+.rightSide label {
+  color: #576388;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+.formAction .span,
+.rightSide .span {
+  color: red;
+}
+.formAction select,
+.formAction input {
+  padding: 1.2rem 0.8rem;
+  font-size: 1.4rem;
+  color: #2a2929;
+  /* border-radius: 4px; */
+}
+.rightSide .time {
+  margin-top: 1rem;
+  min-height: 23.3rem;
+  border: 1px solid #576388;
+  border-radius: 4px;
+}
+.time span {
+  color: #4874dc;
+  margin: 1rem;
+  font-size: 1.4rem;
+  display: inline-block;
+  border: 1px solid #4874dc;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+.time .active {
+  background: #4874dc;
+  color: #fff;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.datePicker {
+  /* Your custom styles for the date picker */
+  /* border: 1px solid #ccc; */
+  /* padding: 10px 20px; */
+  border-radius: 5px !important;
+  font-size: 20px;
+  height: 4.5rem;
+  width: 100%;
+  margin: 0px;
+}
+
+.datePickerInput {
+  /* Styles for the input field */
+  /* ... */
+  border: none;
+
+  font-size: 1.4rem;
+  color: #2a2929;
+  border-radius: 4px;
+  border-radius: 5px !important;
+}
+
+.datePickerCalendar {
+  /* Styles for the calendar popup */
+  /* ... */
+}

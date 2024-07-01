@@ -1,0 +1,38 @@
+.sch {
+  font-size: 2rem;
+  margin: 1rem;
+}
+.schDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.singleDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.singleDetail span {
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  border-radius: 50%;
+}
+.singleDetail p {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: #162342;
+}
+.schDetails .booked {
+  background: #125c71;
+}
+.schDetails .check_in {
+  background: #7351a3;
+}
+.schDetails .cancel {
+  background: #f17e25;
+}

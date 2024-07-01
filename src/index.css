@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #718197;
+}
+.error {
+  color: #b71c1c;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  text-transform: capitalize;
+}
+.main {
+  position: absolute;
+  left: 30rem;
+  width: calc(100% - 30rem);
+}
+.mainBtton {
+  border: none;
+  background: none;
+  padding: 1.2rem 2rem;
+  color: #fff;
+  background: #6571ff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+.SecondaryBtn {
+  border: none;
+  background: none;
+  padding: 1.2rem 2rem;
+  color: #3e597c;
+  background: #adb5bd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+.tableContainer {
+  margin: 1rem;
+}
+.canelLogo {
+  width: 2rem !important;
+  height: 2rem !important;
+  cursor: pointer !important;
+}
+.error-block {
+  background-color: #f0d9e5;
+  margin: 1.6rem 0;
+  padding: 1.6rem;
+  border-radius: 4px;
+  color: #890b35 !important;
+  display: flex;
+  gap: 2.6rem;
+  align-items: center;
+  text-align: left;
+}
+
+.error-block-icon {
+  font-size: 2.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  color: #fff;
+  background-color: #890b35;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-block h2 {
+  color: inherit;
+  font-size: 2rem;
+  margin: 0;
+  color: #890b35 !important;
+}
+
+.error-block p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #890b35 !important;
+}
+.error-block a {
+  color: #890b35;
+  text-decoration: underline;
+}
+.center {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rb-scheduler {
+  /* Target the main scheduler container */
+  font-size: 1.6rem; /* Set your desired font size */
+}
+.rb-event-label,
+.rb-time-header-content {
+  /* Target specific elements for font size control */
+  font-size: 1.6rem; /* Adjust as needed for specific elements */
+}
+.SchedulerPage_sch__l54no {
+  font-size: 3.2rem !important;
+}

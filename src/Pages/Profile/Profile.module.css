@@ -1,0 +1,50 @@
+.profileLayout {
+  margin: 4rem;
+  display: flex;
+  gap: 2rem;
+}
+.avatarCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 35%;
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: 35vh;
+  border-radius: 4px;
+}
+.avatarCard img {
+  width: 30rem;
+  height: 23rem;
+  border-radius: 50%;
+}
+.avatarCard p {
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.formCard {
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 4px;
+  /* height: 30vh;z */
+  width: 80%;
+}
+.formCard aside {
+}
+.formCard .active {
+  color: #007bff;
+}
+.links {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #cccccc;
+  color: #495a64;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1.4rem;
+}

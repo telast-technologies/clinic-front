@@ -1,0 +1,103 @@
+.form_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 100px; */
+}
+.image {
+}
+.image img {
+  height: 90vh;
+  max-width: 65rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin: 0px 30px;
+  height: 90vh;
+}
+.form h2 {
+  text-transform: capitalize;
+  font-size: 3rem;
+}
+.form h6 {
+  margin-top: 5px;
+  color: #b5a59b;
+  text-transform: capitalize;
+  text-transform: lowercase;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.form_action {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form_action label {
+  font-weight: 700;
+  color: black;
+  font-size: 1.4rem;
+}
+.form_action input {
+  width: 60rem;
+  border-radius: 4px;
+  padding: 10px 6px;
+  border: 1px solid #b8b7c7;
+}
+.form_action input::placeholder {
+  color: #b8b7c7;
+  font-weight: 500;
+}
+.login_btn {
+  width: 60rem;
+  height: 40px;
+  color: #fff;
+  border: none;
+  background: #00a2ff;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.container {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 80%; /* Adjust width for larger screens */
+    margin: 0 auto;
+  }
+}
+.visitBtn {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 1rem 0rem;
+  border-left: 1px solid #dcdfe6;
+  border-right: 1px solid #dcdfe6;
+  padding-top: 0;
+}
+.visitBtn button {
+  font-size: 1.4rem;
+  background: none;
+  border: 1px solid #426d98;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  color: #426d98;
+  text-align: center;
+  cursor: pointer;
+}
+.forget_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #004166;
+}

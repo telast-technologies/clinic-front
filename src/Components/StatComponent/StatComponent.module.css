@@ -1,0 +1,26 @@
+.stat {
+  width: 100%;
+  background: #fff;
+  padding: 1.6rem;
+  border-radius: 6px;
+}
+.statLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statLayout h2 {
+  font-size: 1.8rem;
+  color: #000;
+  margin-top: 1rem;
+}
+.statLayout h4 {
+  color: #6c85a1;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.statLayout img {
+  width: 10rem;
+  height: 10rem;
+}

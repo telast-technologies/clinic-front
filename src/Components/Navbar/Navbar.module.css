@@ -1,0 +1,21 @@
+.navbar {
+  height: 10vh;
+  background: #4874dc;
+  color: #fff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0rem 2rem;
+  gap: 1.4rem;
+}
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.admin img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}

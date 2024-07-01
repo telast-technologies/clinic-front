@@ -1,0 +1,39 @@
+.layout {
+  background: #f8fafc;
+  margin: 1rem;
+
+  /* padding: 1rem; */
+}
+.layout h2 {
+  padding: 1rem;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  color: #426d98;
+  border-bottom: 1px solid #2e4c6a;
+}
+.infoLayout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  row-gap: 2rem;
+  padding: 1rem;
+}
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.infoItem p {
+  color: #2e4c6a;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.infoItem span {
+  color: #2e4c6a;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-weight: 400;
+}

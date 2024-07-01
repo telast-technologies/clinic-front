@@ -1,0 +1,161 @@
+table {
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 18px;
+  border-radius: 4px;
+  color: #718197;
+  /* width: 90%; */
+  width: 100%;
+}
+th {
+  padding: 0;
+  margin: 0;
+}
+th:first-child {
+  width: 5%;
+}
+thead {
+  background: #f3f4f7;
+}
+.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+  /* height: 100px; */
+  /* border: 1px solid #ccc; */
+}
+
+.Header p {
+  color: #626267;
+  font-size: 14px;
+  margin-left: 12px;
+}
+.Header svg {
+  width: 15px;
+  height: 15px;
+}
+
+td,
+th {
+  /* border: 1px solid black; */
+  /* padding: 16px 24px; */
+  /* width: 25%; */
+}
+td {
+  padding: 16px 24px;
+}
+th:first-child,
+td:first-child {
+  width: 5%;
+}
+thead tr,
+tbody tr {
+  border: 1px solid #dcdfe6;
+}
+tbody tr:nth-child(odd) {
+  background: #f8fafc;
+}
+tbody tr:nth-child(even) {
+  background: #fff;
+}
+.checkbox {
+  width: 20px;
+  height: 15px;
+}
+.coulmFilter {
+  margin: 0rem 0rem;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  /* margin-bottom: 10px; */
+}
+.coulmFilter input {
+  margin: 10px 0px;
+  margin-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px 4px;
+}
+.coulmFilter input::placeholder {
+  color: #d4d6db;
+}
+.genralFilter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #dcdfe6;
+  border-bottom: none;
+  padding: 5px 10px;
+  background: #f2f3f6;
+}
+.genralFilter svg {
+  width: 20px;
+  height: 20px;
+}
+.genralFilter input {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px 4px;
+  width: 100%;
+}
+.genralFilter input::placeholder {
+  color: #d4d6db;
+}
+.footerTable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #dcdfe6;
+  padding: 16px 24px;
+  background: #f3f4f7;
+  border-top: none;
+  color: #606266;
+  font-size: 14px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.SelectRow {
+  display: flex;
+  gap: 15px;
+}
+.SelectRow p {
+  color: #606266;
+  font-size: 14px;
+}
+.SelectRow select {
+  border: none;
+  background: none;
+  outline: none;
+}
+.SelectRow option {
+  color: #606266;
+  font-size: 14px;
+}
+.pagantion {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.pagantionBtns {
+  display: flex;
+  gap: 10px;
+}
+.pagantionBtns button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background: none;
+  outline: none;
+  color: #606266;
+  cursor: pointer;
+}
+.pagantionBtns svg {
+  width: 10px;
+  height: 10px;
+}

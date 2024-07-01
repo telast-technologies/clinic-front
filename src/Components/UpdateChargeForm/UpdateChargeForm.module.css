@@ -1,0 +1,59 @@
+.cardFormPaient {
+  /* width: 100%; */
+  min-height: 30vh;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  margin: 3rem 2rem;
+  padding: 2rem;
+}
+.cardFormPaient h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #dcdada;
+}
+.formPaient {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  column-gap: 2rem;
+  gap: 1rem;
+}
+.formAction {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.formAction label {
+  color: #576388;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+.formAction span {
+  color: red;
+}
+.formAction input {
+  padding: 1.2rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #d0cece;
+  color: #2a2929;
+}
+.formAction input::placeholder {
+  color: #d0cece;
+}
+.cardFormPaient hr {
+  margin: 4rem 0 2rem;
+}
+.formAction textarea {
+  padding: 1.2rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #d0cece;
+  color: #d0cece;
+  height: 10vh;
+  resize: none;
+}
+.action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  gap: 1rem;
+}

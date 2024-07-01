@@ -1,0 +1,43 @@
+.monthlyCard {
+  border-radius: 6px;
+  padding: 1.6rem;
+  /* height: 4rem; */
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+.left h2 {
+}
+.left h5 {
+  margin-top: 0.5rem;
+  color: #6c85a1;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.left p {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #000;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.right span {
+  color: #24c683;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.right p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+}
