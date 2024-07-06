@@ -2,6 +2,8 @@ import { format } from "date-fns";
 import { ColumnFilter } from "./ColumnFilter";
 export const COLUMNS = [
   // { Header: "Id", accessor: "id", Filter: ColumnFilter },
+  { Header: "Medical Number", accessor: "uid", Filter: ColumnFilter },
+
   {
     Header: "First Name",
     accessor: "first_name",
@@ -9,14 +11,14 @@ export const COLUMNS = [
     // disableFilters: true,
   },
   { Header: "Last Name", accessor: "last_name", Filter: ColumnFilter },
-  {
-    Header: "Date Of Birth",
-    accessor: "birthdate",
-    Cell: ({ value }) => {
-      return format(value, "dd/mm/yyyy");
-    },
-    Filter: ColumnFilter,
-  },
+  // {
+  //   Header: "Date Of Birth",
+  //   accessor: "birthdate",
+  //   Cell: ({ value }) => {
+  //     return format(value, "dd/mm/yyyy");
+  //   },
+  //   Filter: ColumnFilter,
+  // },
   {
     Header: "address",
     accessor: "address",

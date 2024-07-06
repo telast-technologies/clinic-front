@@ -30,7 +30,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import SchedulerPage from "./Pages/SchedulerPage/SchedulerPage";
 import Profile from "./Pages/Profile/Profile";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
-
+import "tippy.js/dist/tippy.css"; // optional
 const router = createBrowserRouter([
   { path: "/", element: <Login /> },
   { path: "/forgetpassword", element: <ForgetPassword /> },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   { path: "/profile", element: <Profile /> },
   { path: "/resetPassword", element: <ResetPassword /> },
 ]);
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 function App() {
   const [token, setToken] = useState("omar nero");

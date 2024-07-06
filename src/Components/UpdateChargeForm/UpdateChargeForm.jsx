@@ -8,10 +8,11 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import PulseLoader from "react-spinners/PulseLoader";
-const UpdateChargeForm = () => {
+const UpdateChargeForm = ({ data: commingData }) => {
   const { uid } = useParams();
   const { token } = useContext(AppContext);
   const navigate = useNavigate();
+  console.log(commingData);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`, // Set authorization header
@@ -44,13 +45,17 @@ const UpdateChargeForm = () => {
         <div className={classes.formPaient}>
           <div className={classes.formAction}>
             <label htmlFor="tax">Tax</label>
-            <input type="number" placeholder="Tax" {...register("tax")} />
+            <input
+              placeholder={commingData?.data?.tax}
+              type="number"
+              {...register("tax")}
+            />
           </div>
           <div className={classes.formAction}>
             <label htmlFor="discount">Discount</label>
             <input
+              placeholder={commingData?.data?.discount}
               type="number"
-              placeholder="Discount"
               {...register("discount")}
             />
           </div>
@@ -58,7 +63,7 @@ const UpdateChargeForm = () => {
             <label htmlFor="sub_total">Sub Total</label>
             <input
               type="number"
-              placeholder="Sub Total"
+              placeholder={commingData?.data?.sub_total}
               {...register("sub_total")}
             />
           </div>

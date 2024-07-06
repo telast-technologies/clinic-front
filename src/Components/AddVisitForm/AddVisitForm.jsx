@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./AddVisitForm.module.css";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import DatePicker from "react-date-picker";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import PulseLoader from "react-spinners/PulseLoader";
+import { useNavigate, useNavigation } from "react-router";
 function isoDateToCustomFormat(isoDateString) {
   const date = new Date(isoDateString);
   const year = date.getFullYear();
@@ -15,6 +16,23 @@ function isoDateToCustomFormat(isoDateString) {
   const day = String(date.getDate()).padStart(2, "0"); // Add leading zero for single-digit days
 
   return `${year}-${month}-${day}`;
+}
+function convertTime(timeString) {
+  // Check if the input string is in valid format (HH:MM:SS)
+  let match = timeString.split(":");
+
+  const hours = parseInt(match[0]);
+  const minutes = parseInt(match[1]);
+  const seconds = parseInt(match[2]);
+
+  // Convert to 12-hour format with AM/PM indicator
+  let convertedHours = hours % 12;
+  if (convertedHours === 0) {
+    convertedHours = 12; // Handle midnight as 12:00AM
+  }
+  const amPm = hours < 12 ? "AM" : "PM";
+
+  return `${convertedHours}:${minutes.toString().padStart(2, "0")} ${amPm}`;
 }
 const now = new Date();
 
@@ -111,9 +129,12 @@ const AddVisitForm = ({ paient }) => {
     e.preventDefault();
   };
 
-  if (isSuccess) {
-    toast.success("added Success");
-  }
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("added Success");
+    }
+  }, [isSuccess]);
 
   return (
     <div className={classes.cardFormPaient}>
@@ -180,7 +201,7 @@ const AddVisitForm = ({ paient }) => {
                     setTimeVal(time);
                   }}
                 >
-                  {time}
+                  {convertTime(time)}
                 </span>
               ))}
             </div>
@@ -188,9 +209,19 @@ const AddVisitForm = ({ paient }) => {
         </div>
         <div className={classes.action}>
           {!isPending && (
-            <button type="submit" className="mainBtton" onClick={SumbitForm}>
-              Save
-            </button>
+            <div className={classes.action}>
+              <button type="submit" className="mainBtton" onClick={SumbitForm}>
+                Save
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/viewvisit");
+                }}
+                className="mainBtton"
+              >
+                Back
+              </button>
+            </div>
           )}
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
         </div>

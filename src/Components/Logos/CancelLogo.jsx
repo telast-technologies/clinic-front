@@ -3,9 +3,11 @@ import { AppContext } from "../../shared/AppContext";
 import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-
+import { queryClient } from "../../App";
+import Tippy from "@tippyjs/react";
 const CancelLogo = ({ id }) => {
   const { token } = useContext(AppContext);
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -18,7 +20,7 @@ const CancelLogo = ({ id }) => {
       config
     );
   }
-  const { mutate, data, isError, isPending, error } = useMutation({
+  const { mutate, data, isError, isPending, error, isSuccess } = useMutation({
     mutationFn: CancelAppointment,
   });
   const clickHandler = () => {
@@ -27,30 +29,39 @@ const CancelLogo = ({ id }) => {
     };
     mutate(data);
   };
+  // useEffect(() => {
+  //   if (data) {
+  //     toast.success("status change to cancel ");
+  //   }
+  // }, [data]);
+
   useEffect(() => {
-    if (data) {
-      toast.success("status change to cancel ");
+    if (isSuccess) {
+      toast.success("status change to cancel");
+      queryClient.refetchQueries(["getAppo"]);
     }
-  }, [data]);
+  }, [isSuccess]);
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-2"
-      onClick={clickHandler}
-      width="2.5rem"
-      height="2.5rem"
-      cursor="pointer"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      />
-    </svg>
+    <Tippy content={<span className="tippy">Cancel </span>}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-2"
+        onClick={clickHandler}
+        width="2.5rem"
+        height="2.5rem"
+        cursor="pointer"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+        />
+      </svg>
+    </Tippy>
   );
 };
 

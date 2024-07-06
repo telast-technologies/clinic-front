@@ -23,13 +23,13 @@ const AddTimeForm = () => {
     );
   }
   const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
   ];
   const { mutate, data, isError, isPending, error } = useMutation({
     mutationFn: AddTimeSlot,
@@ -43,8 +43,9 @@ const AddTimeForm = () => {
         setDay(days);
       } else {
         setDay([]);
-        setEnable(false);
+        setEnable(null);
       }
+      return;
     }
     if (event.target.value === "SUN") {
       if (event.target.checked) {
@@ -111,7 +112,7 @@ const AddTimeForm = () => {
     }
   };
 
-  const [enable, setEnable] = useState(false);
+  const [enable, setEnable] = useState(null);
   const Form = useForm();
   const { register, handleSubmit, formState } = Form;
   const { errors } = formState;
@@ -121,7 +122,7 @@ const AddTimeForm = () => {
       end_time: data.endtime,
       days: day,
     };
-
+    console.log(dataSending);
     mutate(dataSending);
   };
   useEffect(() => {
@@ -173,7 +174,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="SUN"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Sun</span>
           </div>
@@ -182,7 +183,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Mon"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Mon</span>
           </div>
@@ -191,7 +192,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Tue"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Tue</span>
           </div>
@@ -200,7 +201,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Wed"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Wed</span>
           </div>
@@ -209,7 +210,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Thr"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Thr</span>
           </div>
@@ -218,7 +219,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Fri"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Fri</span>
           </div>
@@ -227,7 +228,7 @@ const AddTimeForm = () => {
               type="checkbox"
               value="Sat"
               onChange={handleChange}
-              disabled={enable}
+              checked={enable}
             />
             <span>Sat</span>
           </div>

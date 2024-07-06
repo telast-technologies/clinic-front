@@ -36,7 +36,18 @@ export const ServiceCoulmn = [
     accessor: "date",
     Filter: ColumnFilter,
   },
-  { Header: "Status", accessor: "status", Filter: ColumnFilter },
+  {
+    Header: "Status",
+    accessor: "status",
+    Filter: ColumnFilter,
+    Cell: ({ value }) => {
+      if (value === "checked_in") {
+        return <p>Checked In</p>;
+      } else {
+        return <p>{value}</p>;
+      }
+    },
+  },
   {
     Header: "Action",
     accessor: "uid",

@@ -10,6 +10,24 @@ import { useQuery } from "@tanstack/react-query";
 import ErrorBlock from "../../Components/ErrorBlock/ErrorBlock";
 import BounceLoader from "react-spinners/BounceLoader";
 import { da } from "date-fns/locale";
+function addHoursToTime(timeString, hoursToAdd) {
+  // Check if the input string is in valid format (HH:MM:SS)
+  const match = timeString.split(":");
+
+  const hours = parseInt(match[0]);
+  const minutes = parseInt(match[1]);
+  const seconds = parseInt(match[2]);
+
+  // Add the specified number of hours
+  let newHours = hours + hoursToAdd;
+
+  // Handle overflow (hours exceeding 23)
+  newHours = newHours % 24; // Wrap around to the beginning if exceeding 23
+
+  return `${newHours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
 const SchedulerPage = () => {
   let EVENTS = [];
   const { token } = useContext(AppContext);
@@ -35,7 +53,7 @@ const SchedulerPage = () => {
         event_id: data.uid,
         title: `Event ${i + 1}`,
         start: new Date(`${data?.date} ${data?.time}`),
-        end: new Date(`${data?.date} 23:59`),
+        end: new Date(`${data?.date} ${addHoursToTime(data?.time, 3)}`),
         color:
           data.status === "booked"
             ? "#125C71"

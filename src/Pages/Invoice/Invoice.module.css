@@ -1,0 +1,23 @@
+.chargeAction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin: 1rem;
+}
+.chargeAction button {
+  background: none;
+  border: 1px solid #426d98;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  color: #426d98;
+  text-align: center;
+  cursor: pointer;
+}
+.chargeAction select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #426d98;
+  border-radius: 4px;
+  color: #426d98;
+}

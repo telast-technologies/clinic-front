@@ -6,15 +6,19 @@ export const Supcoulmns = [
     Header: "Item ",
     accessor: "item",
     Filter: ColumnFilter,
-    // disableFilters: true,
   },
-  { Header: "Profit Share", accessor: "profit_share", Filter: ColumnFilter },
+  {
+    Header: "Remains",
+    accessor: "remains",
+    Filter: ColumnFilter,
+  },
 
   {
     Header: "Unit Cost",
     accessor: "unit_cost",
     Filter: ColumnFilter,
   },
+
   { Header: "Quantity", accessor: "quantity", Filter: ColumnFilter },
   {
     Header: "Unit sales Price",

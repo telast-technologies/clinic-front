@@ -31,7 +31,7 @@ const ViewVisit = () => {
   const { data, isError, error, isLoading, refetch, isSuccess } = useQuery({
     queryKey: ["getAppo"],
     queryFn: getApoientMentData,
-    // Refetch every 5 seconds
+    // refetchInterval: 5000,
   });
   if (data) {
   }
