@@ -43,14 +43,14 @@ const hours = now.getHours();
 const minutes = now.getMinutes();
 const seconds = now.getSeconds();
 const milliseconds = now.getMilliseconds();
-const AddVisitForm = ({ paient }) => {
+const AddVisitForm = ({ patient, setAdd, refetch }) => {
   const { token } = useContext(AppContext);
   const [dates, setDate] = useState([]);
   const [times, setTimes] = useState([]);
   const [timeVal, setTimeVal] = useState();
   const [type, setType] = useState("scheduled");
   const [datenew, setDateNew] = useState();
-  const [paientVal, setPaientVal] = useState();
+  const [patientVal, setPatientVal] = useState();
   const [disabledCal, setDisableCal] = useState(true);
   const config = {
     headers: {
@@ -60,8 +60,8 @@ const AddVisitForm = ({ paient }) => {
   const AddApoient = (data) => {
     axios.post("https://clinic.telast.tech/api/v1/visits/visit/", data, config);
   };
-  const paientChange = (event) => {
-    setPaientVal(event.target.value);
+  const patientChange = (event) => {
+    setPatientVal(event.target.value);
     axios
       .get(
         `https://clinic.telast.tech/api/v1/visits/slot/date/available/${event.target.value}`,
@@ -110,13 +110,13 @@ const AddVisitForm = ({ paient }) => {
       time: timeVal,
       visit_type: type,
 
-      patient: paientVal,
+      patient: patientVal,
     };
     console.log(FormData);
     if (type === "walk_in") {
       FormData = {
         visit_type: type,
-        patient: paientVal,
+        patient: patientVal,
         date: `${year}-${month.toString().padStart(2, "0")}-${day
           .toString()
           .padStart(2, "0")}`,
@@ -133,11 +133,13 @@ const AddVisitForm = ({ paient }) => {
   useEffect(() => {
     if (isSuccess) {
       toast.success("added Success");
+      setAdd(false);
+      refetch();
     }
   }, [isSuccess]);
 
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Appointment</h2>
       <form>
         <div className={classes.appointmentLayout}>
@@ -152,8 +154,8 @@ const AddVisitForm = ({ paient }) => {
                   setType(e.target.value);
                 }}
               >
-                <option>scheduled</option>
-                <option>walk_in</option>
+                <option value={"scheduled"}>Scheduled</option>
+                <option value={"walk_in"}>Walk In</option>
               </select>
             </div>
             <div className={classes.formAction}>
@@ -162,10 +164,10 @@ const AddVisitForm = ({ paient }) => {
               </label>
               <select
                 {...register("patient", { required: "patient is reaquired" })}
-                onChange={paientChange}
+                onChange={patientChange}
               >
-                <option>Select Paient</option>
-                {paient.map((item) => (
+                <option>Select Patient</option>
+                {patient.map((item) => (
                   <>
                     <option value={item.uid}>
                       {item.first_name} {item.last_name}
@@ -215,7 +217,7 @@ const AddVisitForm = ({ paient }) => {
               </button>
               <button
                 onClick={() => {
-                  navigate("/viewvisit");
+                  setAdd(false);
                 }}
                 className="mainBtton"
               >
@@ -225,7 +227,9 @@ const AddVisitForm = ({ paient }) => {
           )}
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
         </div>
-        {isError && <ErrorBlock title="error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="error" message={error.response.data.message} />
+        )}
       </form>
     </div>
   );

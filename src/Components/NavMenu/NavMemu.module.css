@@ -29,8 +29,10 @@
   padding: 1.5rem 0rem;
   transition: all ease-in-out 0.1s;
   border-radius: 4px;
+  cursor: pointer;
 }
-.links li:hover {
+.links li:hover,
+.links li.active {
   background: #4874dc;
   color: #fff;
 }

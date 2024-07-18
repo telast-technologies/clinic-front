@@ -1,18 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import NavMenu from "../../Components/NavMenu/NavMenu";
 import Navbar from "../../Components/Navbar/Navbar";
 import TableHeader from "../../Components/TableHeader/TableHeader";
 import { AppContext } from "../../shared/AppContext";
 import axios from "axios";
 import { useQueries, useQuery } from "@tanstack/react-query";
-import BasicTable from "../../Components/PaientTable/BasicTable";
+import BasicTable from "../../Components/PatientTable/BasicTable";
 import { TimeCoulmn } from "./Timecoulmns";
 import { useNavigate } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import ErrorBlock from "../../Components/ErrorBlock/ErrorBlock";
+import AddTimeForm from "../../Components/AddTimeForm/AddTimeForm";
 
 const Timeslot = () => {
   const { token } = useContext(AppContext);
+  const [add, setAdd] = useState(false);
   const getTime = () => {
     const config = {
       headers: {
@@ -21,7 +23,7 @@ const Timeslot = () => {
     };
     return axios.get("https://clinic.telast.tech/api/v1/visits/slot/", config);
   };
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["getTimeSlot"],
     queryFn: getTime,
     staleTime: 500,
@@ -29,7 +31,11 @@ const Timeslot = () => {
   });
   const navigate = useNavigate();
   const navigationfn = () => {
-    navigate("/addtimeslot");
+    // navigate("/addtimeslot");
+    setAdd(!add);
+  };
+  const navigationClaender = () => {
+    navigate("/schedulerslots");
   };
   return (
     <>
@@ -42,8 +48,12 @@ const Timeslot = () => {
               name="Doctor Session"
               navigationfn={navigationfn}
               btnName="Add Doctor Session"
+              addMode={!add}
+              showCalender={true}
+              navigationClaender={navigationClaender}
             />
           )}
+          {add && <AddTimeForm setAdd={setAdd} refetch={refetch} />}
           {data && (
             <BasicTable data={data?.data?.results} columns={TimeCoulmn} />
           )}
@@ -54,7 +64,7 @@ const Timeslot = () => {
           )}
           {isError && (
             <div className="center">
-              <ErrorBlock title="Error" message={error.message} />
+              <ErrorBlock title="Error" message={error.response.data.message} />
             </div>
           )}
         </div>

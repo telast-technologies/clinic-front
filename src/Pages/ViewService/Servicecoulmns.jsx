@@ -1,4 +1,5 @@
-import { ColumnFilter } from "../../Components/PaientTable/ColumnFilter";
+import { ColumnFilter } from "../../Components/PatientTable/ColumnFilter";
+import classes from "./ViewService.module.css";
 import { format } from "date-fns";
 export const ServiceCoulmn = [
   {
@@ -13,7 +14,14 @@ export const ServiceCoulmn = [
     accessor: "active",
     Filter: ColumnFilter,
     Cell: ({ value }) => {
-      return <span> {value ? "Active" : "inActive"} </span>;
+      return (
+        <span
+          className={value ? classes.active__status : classes.inactive__status}
+        >
+          {" "}
+          {value ? "Active" : "inActive"}{" "}
+        </span>
+      );
     },
   },
   {

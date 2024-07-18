@@ -3,7 +3,7 @@ import TableHeader from "../TableHeader/TableHeader";
 import { AppContext } from "../../shared/AppContext";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import BasicTable from "../PaientTable/BasicTable";
+import BasicTable from "../PatientTable/BasicTable";
 import { ChargeServiceCoulmn } from "./ChargeServiceCoulmn";
 import { useNavigate } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
@@ -40,7 +40,7 @@ const ChargeService = ({ uid }) => {
   if (isError) {
     return (
       <div className="center">
-        <ErrorBlock title="Error" message={error.message} />
+        <ErrorBlock title="Error" message={error.response.data.message} />
       </div>
     );
   }

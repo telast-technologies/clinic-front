@@ -1,19 +1,19 @@
 import React from "react";
-import { classes } from "./AddPaient.module.css";
+import { classes } from "./AddPatient.module.css";
 import NavMenu from "../../Components/NavMenu/NavMenu";
 import Navbar from "../../Components/Navbar/Navbar";
-import AddPaientForm from "../../Components/AddPaientForm/AddPaientForm";
-const AddPaient = () => {
+import AddPatientForm from "../../Components/AddPatientForm/AddPatientForm";
+const AddPatient = () => {
   return (
     <>
       <NavMenu />
       <div className="main">
         <Navbar />
 
-        <AddPaientForm />
+        <AddPatientForm />
       </div>
     </>
   );
 };
 
-export default AddPaient;
+export default AddPatient;

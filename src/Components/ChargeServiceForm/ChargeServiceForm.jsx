@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import PulseLoader from "react-spinners/PulseLoader";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
-const ChargeServiceForm = ({ commingData }) => {
+const ChargeServiceForm = ({ commingData, setAdd }) => {
   const { id } = useParams();
   const Form = useForm();
   const { register, handleSubmit, formState } = Form;
@@ -39,10 +39,10 @@ const ChargeServiceForm = ({ commingData }) => {
     toast.success("charge item is addes success");
   }
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Basic information</h2>
       <form onSubmit={handleSubmit(SubmitForn)}>
-        <div className={classes.formPaient}>
+        <div className={classes.formPatient}>
           <div className={classes.formAction}>
             <label>Service</label>
             <select
@@ -60,7 +60,9 @@ const ChargeServiceForm = ({ commingData }) => {
             </select>
           </div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (
@@ -70,7 +72,7 @@ const ChargeServiceForm = ({ commingData }) => {
               </button>
               <button
                 onClick={() => {
-                  navigate(-1);
+                  setAdd(false);
                 }}
                 className="mainBtton"
               >

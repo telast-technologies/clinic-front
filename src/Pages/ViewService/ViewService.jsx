@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import NavMenu from "../../Components/NavMenu/NavMenu";
 import Navbar from "../../Components/Navbar/Navbar";
 import TableHeader from "../../Components/TableHeader/TableHeader";
@@ -6,14 +6,16 @@ import { AppContext } from "../../shared/AppContext";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { da } from "date-fns/locale";
-import BasicTable from "../../Components/PaientTable/BasicTable";
+import BasicTable from "../../Components/PatientTable/BasicTable";
 import { ServiceCoulmn } from "./Servicecoulmns";
 import { useNavigate } from "react-router";
 import BounceLoader from "react-spinners/BounceLoader";
 import ErrorBlock from "../../Components/ErrorBlock/ErrorBlock";
+import AddServiceForm from "../../Components/AddServiceForm/AddServiceForm";
 
 const ViewService = () => {
   const { token } = useContext(AppContext);
+  const [add, setAdd] = useState(false);
   const getService = () => {
     const config = {
       headers: {
@@ -35,7 +37,7 @@ const ViewService = () => {
   }
   const navigate = useNavigate();
   const navigationfn = () => {
-    navigate("/addservices");
+    setAdd(!add);
   };
   return (
     <>
@@ -48,8 +50,10 @@ const ViewService = () => {
               name="Service List"
               navigationfn={navigationfn}
               btnName="Add Service"
+              addMode={!add}
             />
           )}
+          {add && <AddServiceForm setAdd={setAdd} refetch={refetch} />}
           {data && (
             <BasicTable data={data?.data?.results} columns={ServiceCoulmn} />
           )}
@@ -61,7 +65,7 @@ const ViewService = () => {
         )}
         {isError && (
           <div className="center">
-            <ErrorBlock title="Error" message={error.message} />
+            <ErrorBlock title="Error" message={error.response.data.message} />
           </div>
         )}
       </div>

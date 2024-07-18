@@ -1,4 +1,4 @@
-import { ColumnFilter } from "../PaientTable/ColumnFilter";
+import { ColumnFilter } from "../PatientTable/ColumnFilter";
 import { format } from "date-fns";
 export const ChargeServiceCoulmn = [
   {

@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import PulseLoader from "react-spinners/PulseLoader";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
-const ChargeItemForm = ({ data: invoiceData }) => {
+const ChargeItemForm = ({ data: invoiceData, setAdd }) => {
   const { id } = useParams();
   const Form = useForm();
   const { register, handleSubmit, formState } = Form;
@@ -40,10 +40,10 @@ const ChargeItemForm = ({ data: invoiceData }) => {
     toast.success("charge item is addes success");
   }
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Basic information</h2>
       <form onSubmit={handleSubmit(SubmitForm)}>
-        <div className={classes.formPaient}>
+        <div className={classes.formPatient}>
           <div className={classes.formAction}>
             <label htmlFor="quantity">quantity</label>
             <input
@@ -70,7 +70,9 @@ const ChargeItemForm = ({ data: invoiceData }) => {
           </div>
           <div></div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (
@@ -80,7 +82,7 @@ const ChargeItemForm = ({ data: invoiceData }) => {
               </button>
               <button
                 onClick={() => {
-                  navigate(-1);
+                  setAdd(false);
                 }}
                 className="mainBtton"
               >

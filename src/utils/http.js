@@ -8,7 +8,7 @@ export async function FetchData() {
 export function LoginSendData(data) {
   return axios.post("https://clinic.telast.tech/api/auth/login/", data);
 }
-export function AddPaientSend(data, config) {
+export function AddPatientSend(data, config) {
   // return axios.post(
   //   "https://clinic.telast.tech/api/v1/patients/patient/",
   //   data,

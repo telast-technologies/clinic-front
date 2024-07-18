@@ -21,7 +21,9 @@ const UpdateClinic = ({ data }) => {
       config
     );
   }
-  const Form = useForm();
+  const Form = useForm({
+    defaultValues: data,
+  });
   const { register, handleSubmit, formState } = Form;
   const { errors } = formState;
   const { mutate, isError, isPending, error, isSuccess } = useMutation({
@@ -115,7 +117,9 @@ const UpdateClinic = ({ data }) => {
           </textarea>
         </div>
         <PulseLoader color="#4874dc" size={18} loading={isPending} />
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         {!isPending && (
           <button className={classes.saveChange} type="submit">
             Save Change

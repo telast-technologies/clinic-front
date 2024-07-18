@@ -8,11 +8,13 @@ import { AppContext } from "../../shared/AppContext";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Supcoulmns } from "./Supcoulmns";
-import BasicTable from "../../Components/PaientTable/BasicTable";
+import BasicTable from "../../Components/PatientTable/BasicTable";
 import BounceLoader from "react-spinners/BounceLoader";
 import ErrorBlock from "../../Components/ErrorBlock/ErrorBlock";
+import AddSupForm from "../../Components/AddSupForm/AddSupForm";
 const ViewSupplies = () => {
   const { token } = useContext(AppContext);
+  const [add, setAdd] = useState(false);
   const getsupplies = () => {
     const config = {
       headers: {
@@ -32,7 +34,7 @@ const ViewSupplies = () => {
   });
   const navigate = useNavigate();
   const navigationfn = () => {
-    navigate("/addsup");
+    setAdd(!add);
   };
 
   return (
@@ -46,8 +48,11 @@ const ViewSupplies = () => {
               name="Supplies List"
               navigationfn={navigationfn}
               btnName="Add Supplie"
+              addMode={!add}
             />
           )}
+          {add && <AddSupForm setAdd={setAdd} refetch={refetch} />}
+
           {data && (
             <BasicTable data={data?.data?.results} columns={Supcoulmns} />
           )}
@@ -58,7 +63,7 @@ const ViewSupplies = () => {
           )}
           {isError && (
             <div className="center">
-              <ErrorBlock title="Error" message={error.message} />
+              <ErrorBlock title="Error" message={error.response.data.message} />
             </div>
           )}
         </div>

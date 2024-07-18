@@ -6,9 +6,9 @@ export default function ErrorBlock({ title, message }) {
       <div className="error-block-text">
         <h2>{title}</h2>
         <p>{message}</p>
-        <p>
+        {/* <p>
           Please login again <Link to="/"> Login </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );

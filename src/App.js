@@ -7,12 +7,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppContext } from "./shared/AppContext";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import AddPaient from "./Pages/AddPaient/AddPaient";
+import AddPatient from "./Pages/AddPatient/AddPatient";
 import AddStaff from "./Pages/AddStaff/AddStaff";
 import "react-toastify/dist/ReactToastify.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
-import ViewPaient from "./Pages/ViewPaient/ViewPaient";
+import ViewPatient from "./Pages/ViewPatient/ViewPatient";
 import ViewSupplies from "./Pages/ViewSupplies/ViewSupplies";
 import AddSupplies from "./Pages/AddSupplies/AddSupplies";
 import ViewService from "./Pages/ViewService/ViewService";
@@ -28,15 +28,16 @@ import AddChargeItem from "./Pages/AddChargeItem/AddChargeItem";
 import AddChargeService from "./Pages/AddChargeService/AddChargeService";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import SchedulerPage from "./Pages/SchedulerPage/SchedulerPage";
+import SchedulerSessions from "./Pages/SchedulerPage/SchedulerSessions";
 import Profile from "./Pages/Profile/Profile";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import "tippy.js/dist/tippy.css"; // optional
 const router = createBrowserRouter([
   { path: "/", element: <Login /> },
   { path: "/forgetpassword", element: <ForgetPassword /> },
-  { path: "/addpaient", element: <AddPaient /> },
+  { path: "/addpatient", element: <AddPatient /> },
   { path: "/addstaff", element: <AddStaff /> },
-  { path: "/viewpaient", element: <ViewPaient /> },
+  { path: "/viewpatient", element: <ViewPatient /> },
   { path: "/viewsup", element: <ViewSupplies /> },
   { path: "/addsup", element: <AddSupplies /> },
   { path: "/viewservices", element: <ViewService /> },
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
   { path: "/addchargeService/:id", element: <AddChargeService /> },
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/scheduler", element: <SchedulerPage /> },
+  { path: "/schedulerslots", element: <SchedulerSessions /> },
   { path: "/profile", element: <Profile /> },
   { path: "/resetPassword", element: <ResetPassword /> },
 ]);

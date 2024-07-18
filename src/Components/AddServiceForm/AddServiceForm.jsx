@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import { useNavigate } from "react-router";
 import PulseLoader from "react-spinners/PulseLoader";
-const AddServiceForm = () => {
+const AddServiceForm = ({ setAdd, refetch }) => {
   const Form = useForm();
   const { register, handleSubmit, formState } = Form;
   const { errors } = formState;
@@ -38,13 +38,15 @@ const AddServiceForm = () => {
   };
   if (isSuccess) {
     toast.success("data is Success Created");
+    setAdd(false);
+    refetch();
   }
 
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Basic information</h2>
       <form onSubmit={handleSubmit(SumbitForm)}>
-        <div className={classes.formPaient}>
+        <div className={classes.formPatient}>
           <div className={classes.formAction}>
             <label htmlFor="name">
               Service Name <span>*</span>
@@ -72,7 +74,9 @@ const AddServiceForm = () => {
             />
           </div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (
@@ -83,7 +87,7 @@ const AddServiceForm = () => {
               <button
                 className="mainBtton"
                 onClick={() => {
-                  navigate(-1);
+                  setAdd(false);
                 }}
               >
                 Back

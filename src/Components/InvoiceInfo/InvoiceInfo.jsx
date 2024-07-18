@@ -36,7 +36,7 @@ const InvoiceInfo = ({ uid }) => {
   if (isError) {
     return (
       <div className="center">
-        <ErrorBlock title="Error" message={error.message} />
+        <ErrorBlock title="Error" message={error.response.data.message} />
       </div>
     );
   }

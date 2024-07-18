@@ -68,7 +68,12 @@ const Profile = () => {
                   <BounceLoader color="#4874dc" size={150} />
                 </div>
               )}
-              {isError && <ErrorBlock title="error" message={error.message} />}
+              {isError && (
+                <ErrorBlock
+                  title="error"
+                  message={error.response.data.message}
+                />
+              )}
               {type === "profile" && data && (
                 <UpdateProfile data={data?.data} />
               )}

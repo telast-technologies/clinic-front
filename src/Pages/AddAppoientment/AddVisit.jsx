@@ -9,28 +9,12 @@ import { useForm } from "react-hook-form";
 
 const AddVisit = () => {
   const { token } = useContext(AppContext);
-  const getPaient = () => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`, // Set authorization header
-      },
-    };
-    return axios.get(
-      "https://clinic.telast.tech/api/v1/patients/patient/",
-      config
-    );
-  };
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["getPaient"],
-    queryFn: getPaient,
-  });
 
   return (
     <>
       <NavMenu />
       <div className="main">
         <Navbar />
-        {data && <AddVisitForm paient={data?.data?.results} />}
       </div>
     </>
   );

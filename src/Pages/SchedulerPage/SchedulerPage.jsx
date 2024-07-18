@@ -51,7 +51,7 @@ const SchedulerPage = () => {
     let NewEvent = newData.map((data, i) => {
       return {
         event_id: data.uid,
-        title: `Event ${i + 1}`,
+        title: data?.patient,
         start: new Date(`${data?.date} ${data?.time}`),
         end: new Date(`${data?.date} ${addHoursToTime(data?.time, 3)}`),
         color:
@@ -71,11 +71,11 @@ const SchedulerPage = () => {
         <Navbar />
 
         <div className={classes.sch}>
-          {data && <Scheduler events={EVENTS} disableViewer />}
+          {data && <Scheduler view="month" events={EVENTS} disableViewer />}
         </div>
         {isError && (
           <div className="center">
-            <ErrorBlock title="Error" message={error.message} />
+            <ErrorBlock title="Error" message={error.response.data.message} />
           </div>
         )}
         {isLoading && (
@@ -91,7 +91,7 @@ const SchedulerPage = () => {
             </div>
             <div className={classes.singleDetail}>
               <span className={classes.check_in}></span>
-              <p>checked_in</p>
+              <p>checked in</p>
             </div>
             <div className={classes.singleDetail}>
               <span className={classes.cancel}></span>

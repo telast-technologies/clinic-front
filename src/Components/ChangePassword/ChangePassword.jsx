@@ -40,7 +40,7 @@ const ChangePassword = () => {
         <div className={classes.formAction}>
           <label>Old Passwaord</label>
           <input
-            type="text"
+            type="password"
             id="old_password"
             {...register("old_password", {
               required: "old_password is required",
@@ -50,7 +50,7 @@ const ChangePassword = () => {
         <div className={classes.formAction}>
           <label>New Passwaord</label>
           <input
-            type="text"
+            type="password"
             id="new_password1"
             {...register("new_password1", {
               required: "new_password1 is required",
@@ -60,7 +60,7 @@ const ChangePassword = () => {
         <div className={classes.formAction}>
           <label>Confirm Passwaord</label>
           <input
-            type="text"
+            type="password"
             id="new_password2"
             {...register("new_password2", {
               required: "new_password2 is required",
@@ -68,7 +68,9 @@ const ChangePassword = () => {
           />
         </div>
         <PulseLoader color="#4874dc" size={18} loading={isPending} />
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <button type="submit" className={classes.saveChange}>
           Save Change
         </button>

@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import PulseLoader from "react-spinners/PulseLoader";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
-const AddTimeForm = () => {
+const AddTimeForm = ({ setAdd, refetch }) => {
   const { token } = useContext(AppContext);
   const config = {
     headers: {
@@ -128,14 +128,16 @@ const AddTimeForm = () => {
   useEffect(() => {
     if (data) {
       toast.success("Doctor Sesstion Add Success");
+      setAdd(false);
+      refetch();
     }
   }, [data]);
   return (
     <>
-      <div className={classes.cardFormPaient}>
+      <div className={classes.cardFormPatient}>
         <h2>Basic information</h2>
         <form onSubmit={handleSubmit(SubmitForm)}>
-          <div className={classes.formPaient}>
+          <div className={classes.formPatient}>
             <div className={classes.formAction}>
               <label htmlFor="start time">
                 Start Time <span>*</span>
@@ -233,7 +235,9 @@ const AddTimeForm = () => {
             <span>Sat</span>
           </div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (
@@ -248,7 +252,7 @@ const AddTimeForm = () => {
               <button
                 className="mainBtton"
                 onClick={() => {
-                  navigate(-1);
+                  setAdd(false);
                 }}
               >
                 Back

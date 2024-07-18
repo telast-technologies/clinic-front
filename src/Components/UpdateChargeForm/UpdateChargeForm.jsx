@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import PulseLoader from "react-spinners/PulseLoader";
-const UpdateChargeForm = ({ data: commingData }) => {
+const UpdateChargeForm = ({ data: commingData, setAdd }) => {
   const { uid } = useParams();
   const { token } = useContext(AppContext);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const UpdateChargeForm = ({ data: commingData }) => {
       config
     );
   }
-  const Form = useForm();
+  const Form = useForm({ defaultValues: commingData?.data });
   const { register, handleSubmit, formState } = Form;
   const { mutate, data, isError, isPending, error, isSuccess } = useMutation({
     mutationFn: UpdateCharge,
@@ -39,36 +39,26 @@ const UpdateChargeForm = ({ data: commingData }) => {
     navigate(-1);
   }
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Basic information</h2>
       <form onSubmit={handleSubmit(SubmitForm)}>
-        <div className={classes.formPaient}>
+        <div className={classes.formPatient}>
           <div className={classes.formAction}>
             <label htmlFor="tax">Tax</label>
-            <input
-              placeholder={commingData?.data?.tax}
-              type="number"
-              {...register("tax")}
-            />
+            <input type="number" {...register("tax")} />
           </div>
           <div className={classes.formAction}>
             <label htmlFor="discount">Discount</label>
-            <input
-              placeholder={commingData?.data?.discount}
-              type="number"
-              {...register("discount")}
-            />
+            <input type="number" {...register("discount")} />
           </div>
           <div className={classes.formAction}>
             <label htmlFor="sub_total">Sub Total</label>
-            <input
-              type="number"
-              placeholder={commingData?.data?.sub_total}
-              {...register("sub_total")}
-            />
+            <input type="number" {...register("sub_total")} />
           </div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (

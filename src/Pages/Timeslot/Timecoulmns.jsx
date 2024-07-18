@@ -1,4 +1,4 @@
-import { ColumnFilter } from "../../Components/PaientTable/ColumnFilter";
+import { ColumnFilter } from "../../Components/PatientTable/ColumnFilter";
 import { format } from "date-fns";
 function convertTimeToAmPm(timeString) {
   // Split the time string into hours and minutes

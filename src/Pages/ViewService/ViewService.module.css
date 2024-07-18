@@ -1,0 +1,21 @@
+.active__status {
+  background-color: #34c38f2e;
+  color: #34cf8f;
+  padding: 8px;
+  border-radius: 6px;
+}
+.not__active__status {
+  background-color: #f46a6a2e;
+  color: #f46f6f;
+  padding: 8px;
+  border-radius: 6px;
+}
+.active__status {
+  color: green;
+  cursor: pointer;
+}
+
+.inactive__status {
+  color: red;
+  cursor: pointer;
+}

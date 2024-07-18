@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Dashboard.module.css";
 import StatComponent from "../../Components/StatComponent/StatComponent";
-import PaientImg from "../../assets/paientImg.png";
+import PatientImg from "../../assets/paientImg.png";
 import ClaenderImg from "../../assets/calenderImg.png";
 import LineChart from "../../Components/LineChart/LineChart";
 import AdminCard from "../../Components/AdminCard/AdminCard";
@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <StatComponent
                   title="upcoming appointments"
                   count={300}
-                  img={PaientImg}
+                  img={PatientImg}
                 />
                 <StatComponent
                   title="total appointments"

@@ -1,0 +1,32 @@
+.actionContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+}
+
+.actionButton:nth-child(1) {
+  color: #ff5733; /* Edit */
+}
+
+.actionButton:nth-child(2) {
+  color: #33ffa1; /* Appointment */
+}
+
+.actionButton:nth-child(3) {
+  color: #3385ff; /* Reports */
+}
+
+.actionButton:nth-child(4) {
+  color: #ff33b8; /* Profile */
+}
+
+.actionButton:nth-child(5) {
+  color: #ff3333; /* Delete */
+}

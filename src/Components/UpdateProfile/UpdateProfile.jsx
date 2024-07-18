@@ -21,7 +21,9 @@ const UpdateProfile = ({ data }) => {
       config
     );
   }
-  const Form = useForm();
+  const Form = useForm({
+    defaultValues: data,
+  });
   const { register, handleSubmit, formState } = Form;
   const { errors } = formState;
   const { mutate, isError, isPending, error, isSuccess } = useMutation({
@@ -41,7 +43,6 @@ const UpdateProfile = ({ data }) => {
           <label>User Name</label>
           <input
             type="text"
-            placeholder={data.username}
             id="username"
             {...register("username", {
               required: "username is required",
@@ -52,7 +53,6 @@ const UpdateProfile = ({ data }) => {
           <label>Email</label>
           <input
             type="text"
-            placeholder={data.email}
             id="email"
             {...register("email", {
               required: "email is required",
@@ -63,7 +63,6 @@ const UpdateProfile = ({ data }) => {
           <label>First Name</label>
           <input
             type="text"
-            placeholder={data.first_name}
             id="first_name"
             {...register("first_name", {
               required: "first_name",
@@ -74,7 +73,6 @@ const UpdateProfile = ({ data }) => {
           <label>Last Name</label>
           <input
             type="text"
-            placeholder={data.last_name}
             id="last_name"
             {...register("last_name", {
               required: "last_name ",
@@ -84,8 +82,7 @@ const UpdateProfile = ({ data }) => {
         <div className={classes.formAction}>
           <label>Phone</label>
           <input
-            type="number"
-            placeholder={data.phone}
+            type="text"
             id="phone"
             {...register("phone", {
               required: "phone ",
@@ -93,7 +90,9 @@ const UpdateProfile = ({ data }) => {
           />
         </div>
         <PulseLoader color="#4874dc" size={18} loading={isPending} />
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         {!isPending && (
           <button type="submit" className={classes.saveChange}>
             Save Change

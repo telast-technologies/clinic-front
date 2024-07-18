@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-import { ColumnFilter } from "../../Components/PaientTable/ColumnFilter";
+import { ColumnFilter } from "../../Components/PatientTable/ColumnFilter";
 export const Supcoulmns = [
   {
     Header: "Item ",

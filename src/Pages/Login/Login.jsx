@@ -44,7 +44,7 @@ const Login = () => {
       <div className="form_layout">
         <div className="form">
           <h2>Welcome back</h2>
-          <h6> please enter your male and password </h6>
+          <h6> please enter your email and password </h6>
           <form onSubmit={handleSubmit(SumbitForm)}>
             <div className="form_action">
               <label>Email</label>
@@ -80,7 +80,10 @@ const Login = () => {
               Forget Password
             </Link>
             {isError && (
-              <ErrorBlock title="Login Error" message={error.message} />
+              <ErrorBlock
+                title="Login Error"
+                message={error.response.data.message}
+              />
             )}
           </form>
         </div>

@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import PulseLoader from "react-spinners/PulseLoader";
-const AddSupForm = () => {
+const AddSupForm = ({ setAdd, refetch }) => {
   const { token } = useContext(AppContext);
   const config = {
     headers: {
@@ -44,14 +44,16 @@ const AddSupForm = () => {
   if (isSuccess) {
     if (data && !isError && !isPending) {
       toast.success("Supplies  is Adding Success");
+      setAdd(false);
+      refetch();
       console.log("datasending");
     }
   }
   return (
-    <div className={classes.cardFormPaient}>
+    <div className={classes.cardFormPatient}>
       <h2>Basic information</h2>
       <form onSubmit={handleSubmit(SubmitForm)}>
-        <div className={classes.formPaient}>
+        <div className={classes.formPatient}>
           <div className={classes.formAction}>
             <label htmlFor="invoice">
               Invoice <span>*</span>
@@ -117,8 +119,16 @@ const AddSupForm = () => {
               })}
             />
           </div>
+          <div className={classes.formAction}>
+            <label htmlFor="expire_date">
+              Expiration date<span>*</span>
+            </label>
+            <input type="date" id="expire_date" {...register("expire_date")} />
+          </div>
         </div>
-        {isError && <ErrorBlock title="Error" message={error.message} />}
+        {isError && (
+          <ErrorBlock title="Error" message={error.response.data.message} />
+        )}
         <div className={classes.action}>
           <PulseLoader color="#4874dc" size={18} loading={isPending} />
           {!isPending && (
@@ -128,7 +138,7 @@ const AddSupForm = () => {
               </button>
               <button
                 onClick={() => {
-                  navigate(-1);
+                  setAdd(false);
                 }}
                 className="mainBtton"
               >

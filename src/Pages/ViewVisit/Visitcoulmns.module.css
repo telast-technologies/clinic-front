@@ -1,0 +1,60 @@
+.defaultStyle {
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.scheduled {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.walkIn {
+  background-color: #2196f3;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.defaultStyleStatus {
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.checkedIn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.booked {
+  background-color: #ffc107;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.checkedOut {
+  background-color: #2196f3;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.cancelled {
+  background-color: #f44336;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+.active {
+  background-color: #4caf50;
+  color: #fff;
+}

@@ -1,15 +1,14 @@
-.cardFormPaient {
+.cardFormPatient {
   /* width: 100%; */
   height: 60vh;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   margin: 3rem 2rem;
   padding: 2rem;
 }
-.cardFormPaient h2 {
+.cardFormPatient h2 {
   text-transform: uppercase;
   font-weight: bold;
-  color: #dcdada;
-  color: #4874dc;
+  color: #576388;
 }
 .appointmentLayout {
   margin-top: 2rem;
